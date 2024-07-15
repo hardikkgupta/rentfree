@@ -1,0 +1,7 @@
+// yarn add react-router-dom
+// yarn add express
+// nodemon index.js
+// Also, need to look into the api
+// 45:03
+<input type="text" placeholder="John Doe" value={name} onChange={ev => setName(ev.target.value)}/> 
+49:00
