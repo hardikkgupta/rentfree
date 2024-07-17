@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 export default function RegisterPage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -7,7 +9,11 @@ export default function RegisterPage() {
 
     function registerUser(ev) {
         ev.preventDefault();
-        axios.get('http://localhost:4000/test')
+        axios.post('/register', {
+            name,
+            email,
+            password,
+        });
     }
 
     return (

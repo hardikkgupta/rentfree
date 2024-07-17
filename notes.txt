@@ -5,3 +5,32 @@
 // 45:03
 <input type="text" placeholder="John Doe" value={name} onChange={ev => setName(ev.target.value)}/> 
 49:00
+
+function registerUser(ev) {
+        ev.preventDefault();
+        axios.get('http://localhost:4000/test')
+    }
+
+CORS Error
+>> api 
+app.use(cors({
+    credentials: true, 
+    origin: 'http://localhost:5173',
+}));
+
+500 Internal Server Error
+TypeError: Cannot destructure property 'name' of 'req.body' as it is undefined.
+    at /Users/hardikgupta/Documents/Projects/RentFree/api/index.js:15:12
+    at Layer.handle [as handle_request] (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/cors/lib/index.js:188:7)
+    at /Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/cors/lib/index.js:224:17
+
+    Why use MongoDB?
+
+    Password: //69HGzxMNJIebokh7
