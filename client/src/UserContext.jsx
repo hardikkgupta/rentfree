@@ -1,9 +1,21 @@
-const { createContext } = require("react");
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
+
+// const { createContext, useEffect } = require("react");
+// export const UserContext = createContext({});
 
 export const UserContext = createContext({});
 
 export function UserContextProvider({children}) {
-    const [user, setUser] = userState(null);
+    const [user, setUser] = useState(null);
+    
+    useEffect (() => {
+        if (!user) {
+            axios.get('/profile').then(({data}) => {
+                setUser(data);
+            });
+        }
+    }, []);
     return (
         <UserContext.Provider value={{user, setUser}}>
             {children}
