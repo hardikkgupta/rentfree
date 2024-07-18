@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     async function handleLoginSubmit (ev) {
         ev.preventDefault();
         try {
-            await axios.post('/login', {email, password})
+            await axios.post('/login', {email, password}, {withCredentials: true});
             alert("Login Successful")
         } catch (e) {
             alert("Login Failed");

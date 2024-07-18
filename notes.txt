@@ -36,5 +36,5 @@ TypeError: Cannot destructure property 'name' of 'req.body' as it is undefined.
 
     Mogoose 
 
-    1:21:00
+    1:24:14
     Cross-Origin Resource Sharing (CORS):
