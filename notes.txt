@@ -32,5 +32,9 @@ TypeError: Cannot destructure property 'name' of 'req.body' as it is undefined.
     at /Users/hardikgupta/Documents/Projects/RentFree/api/node_modules/cors/lib/index.js:224:17
 
     Why use MongoDB?
-
     Password: //69HGzxMNJIebokh7
+
+    Mogoose 
+
+    1:21:00
+    Cross-Origin Resource Sharing (CORS):
