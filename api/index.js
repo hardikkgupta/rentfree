@@ -120,7 +120,11 @@ app.post('/places', (req, res) => {
     } = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
-        const placeDoc = await Place.create()
+        const placeDoc = await Place.create({
+            owner:userData.id,
+            title,address,photos:addedPhotos,description,
+            perks,extraInfo,checkIn,checkOut,maxGuests,
+        });
         res.json(placeDoc);
     });
     
