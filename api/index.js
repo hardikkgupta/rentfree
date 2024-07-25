@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const User = require('./models/User.js');
 const Place = require('./models/Place.js');
-// const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const imageDownloader = require('image-downloader');
@@ -116,12 +115,12 @@ app.post('/places', (req, res) => {
     const {token} = req.cookies;
     const {
         title, address, addedPhotos, description,
-        perks, extraInfo, checkIn, checkOut, maxGuests,
+        perks, extraInfo, checkIn, checkOut, maxGuests, price
     } = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
         const placeDoc = await Place.create({
-            owner:userData.id,
+            owner:userData.id, price,
             title,address,photos:addedPhotos,description,
             perks,extraInfo,checkIn,checkOut,maxGuests,
         });
@@ -130,7 +129,7 @@ app.post('/places', (req, res) => {
     
 });
 
-app.get('/places', (req, res) => {
+app.get('/user-places', (req, res) => {
     const {token} = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         const {id} = userData;
@@ -147,7 +146,7 @@ app.put('/places', async (req, res) => {
     const {token} = req.cookies;
     const {
         id, title, address, addedPhotos, description,
-        perks, extraInfo, checkIn, checkOut, maxGuests,
+        perks, extraInfo, checkIn, checkOut, maxGuests,price,
     } = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
@@ -156,7 +155,7 @@ app.put('/places', async (req, res) => {
             placeDoc.set({
                 
                 title, address, photos:addedPhotos, description,
-                perks, extraInfo, checkIn, checkOut, maxGuests,
+                perks, extraInfo, checkIn, checkOut, maxGuests, price,
             });
             await placeDoc.save();
             res.json('ok');
@@ -164,6 +163,9 @@ app.put('/places', async (req, res) => {
     });
 });
 
+app.get('/places', async (req, res) => {
+    res.json( await Place.find() );
+})
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

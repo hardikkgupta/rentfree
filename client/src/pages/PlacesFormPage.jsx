@@ -7,7 +7,6 @@ import { Navigate, useParams } from "react-router-dom";
 
 export default function PlacesFormPage() {
     const {id} = useParams();
-
     const [title, setTitle] = useState('');
     const [address, setAddress] = useState('');
     const [description, setDescription] = useState('');
@@ -17,6 +16,7 @@ export default function PlacesFormPage() {
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
     const [maxGuests, setMaxGuests] = useState(1);
+    const [price, setPrice] = useState(100);
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
         console.log("URL ID:", id);
@@ -34,6 +34,7 @@ export default function PlacesFormPage() {
             setCheckIn(data.checkIn);
             setCheckOut(data.checkOut);
             setMaxGuests(data.maxGuests);
+            setPrice(data.price);
         });
     }, [id]);
 
@@ -63,7 +64,7 @@ export default function PlacesFormPage() {
         const placeData = {
             title, address, addedPhotos, 
             description, perks, extraInfo, 
-            checkIn, checkOut, maxGuests
+            checkIn, checkOut, maxGuests, price,
         };
         console.log("Data",placeData);
         console.log("Id", id)
@@ -104,19 +105,19 @@ export default function PlacesFormPage() {
                         <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} />
                         
                         {preInput('Check-in, Check-out and Max guests', 'Rules etc.')}
-                        <div className="grid gap-2 sm:grid-cols-3">
+                        <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-4">
                             <div>
                                 <h3 className="mt-2 -mb-1">Check-in time</h3>
                                 <input type="text" 
                                 value={checkIn} 
-                                onChange={ev => setCheckIn(ev.target.value)} placeholder="14:00"/>
+                                onChange={ev => setCheckIn(ev.target.value)} placeholder="14"/>
                             </div>
 
                             <div>
                             <h3 className="mt-2 -mb-1">Check-out time</h3>
                             <input type="text" 
                             value={checkOut} 
-                            onChange={ev => setCheckOut(ev.target.value)} placeholder="12:00"/>
+                            onChange={ev => setCheckOut(ev.target.value)} placeholder="12"/>
                             </div>
 
                             <div>
@@ -124,6 +125,13 @@ export default function PlacesFormPage() {
                             <input type="number" 
                             value={maxGuests} 
                             onChange={ev => setMaxGuests(ev.target.value)} placeholder="2"/>
+                            </div>
+
+                            <div>
+                            <h3 className="mt-2 -mb-1">Price per night</h3>
+                            <input type="number" 
+                            value={price} 
+                            onChange={ev => setPrice(ev.target.value)} placeholder="100"/>
                             </div>
                         </div>
                         <button className="primary my-4">Save</button>
