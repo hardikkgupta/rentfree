@@ -174,10 +174,10 @@ app.post('/bookings', (req, res) => {
     Booking.create({
         place, checkIn, checkOut, 
         numberOfGuests, name, phone, price
-    }).then((err, doc) => {
+    }).then((doc) => {
         res.json(doc);
     }).catch((err) => {
-        throw err;
+        res.status(500).json({ error: 'Booking creation failed' });
     });
 });
 
