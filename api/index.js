@@ -25,6 +25,15 @@ app.use(cors({
 
 mongoose.connect(process.env.MONGO_URL);
 
+function getUserDataFromRequest(req) {
+    return new Promise ((resolve, reject) => {
+    jwt.verify(req.cookies.token, jwtSecret, {}, async (err, userData) => {
+        if (err) throw err;
+        resolve(userData);
+    });
+});
+}
+
 app.get('/test', (req, res) => {
     res.json('test okay')
 });
@@ -168,17 +177,25 @@ app.get('/places', async (req, res) => {
     res.json( await Place.find() );
 });
 
-app.post('/bookings', (req, res) => {
+app.post('/bookings', async (req, res) => {
+    const userData = await getUserDataFromRequest(req);
     const {place, checkIn, checkOut, 
         numberOfGuests, name, phone, price} = req.body;
     Booking.create({
         place, checkIn, checkOut, 
-        numberOfGuests, name, phone, price
+        numberOfGuests, name, phone, price,
+        user:userData.id,
     }).then((doc) => {
         res.json(doc);
     }).catch((err) => {
         res.status(500).json({ error: 'Booking creation failed' });
     });
+});
+
+
+app.get('/bookings', async (req, res) => {
+    const userData = await getUserDataFromRequest(req);
+    res.json( await Booking.find({user:userData.id}).populate('place') );
 });
 
 const PORT = process.env.PORT || 4000;
