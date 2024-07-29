@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const User = require('./models/User.js');
 const Place = require('./models/Place.js');
+const Booking = require('./models/Booking.js');
 const bcrypt = require('bcryptjs');
 const cookieParser = require('cookie-parser');
 const imageDownloader = require('image-downloader');
@@ -165,7 +166,20 @@ app.put('/places', async (req, res) => {
 
 app.get('/places', async (req, res) => {
     res.json( await Place.find() );
-})
+});
+
+app.post('/bookings', (req, res) => {
+    const {place, checkIn, checkOut, 
+        numberOfGuests, name, phone, price} = req.body;
+    Booking.create({
+        place, checkIn, checkOut, 
+        numberOfGuests, name, phone, price
+    }).then((err, doc) => {
+        res.json(doc);
+    }).catch((err) => {
+        throw err;
+    });
+});
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
