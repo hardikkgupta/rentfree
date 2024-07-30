@@ -1,5 +1,7 @@
 # RentFree
 
+![Description](cover.png)
+
 RentFree is a web application designed to facilitate property rentals. It features user authentication, profile management, booking functionalities, and property listings. This README provides an overview of the project's structure, key components, and setup instructions.
 
 ## Table of Contents
