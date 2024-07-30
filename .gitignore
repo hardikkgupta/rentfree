@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 api/.env
+api/node_modules
+client.env
