@@ -1,3 +1,4 @@
+import Image from "./Image";
 import { useState } from "react";
 
 export default function PlaceGallery({place}) {
@@ -18,7 +19,7 @@ export default function PlaceGallery({place}) {
                     </div>
                 {place?.photos?.length > 0 && place.photos.map(photo => (
                     <div className="w-2/3">
-                        <img src={'http://localhost:4000/uploads/'+photo}  className="w-full h-auto object-cover ml-4" />
+                        <Image src={photo}  className="w-full h-auto object-cover ml-4" />
                     </div>
                 ))}
                 </div>      
@@ -32,18 +33,18 @@ export default function PlaceGallery({place}) {
                 <div>
                     {place.photos?.[0] && (
                         <div>
-                            <img onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover" src={'http://localhost:4000/uploads/'+place.photos[0]} alt=""/>
+                            <Image onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover" src={place.photos[0]} alt=""/>
                         </div>
                     )}
                 </div>
                 <div className="grid gap-0">
                 {place.photos?.[1] && (
-                        <img onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover" src={'http://localhost:4000/uploads/'+place.photos[1]} alt=""/>
+                        <Image onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover" src={place.photos[1]} alt=""/>
                     )}
 
                 <div className="overflow-hidden">
                 {place.photos?.[2] && (
-                        <img onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover relative top-2" src={'http://localhost:4000/uploads/'+place.photos[2]} alt=""/>
+                        <Image onClick={() => setShowAllPhotos(true)} className="aspect-square cursor-pointer object-cover relative top-2" src={place.photos[2]} alt=""/>
                     )}
                 </div>
                 </div>
