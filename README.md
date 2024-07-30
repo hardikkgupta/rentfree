@@ -7,7 +7,7 @@ RentFree is a web application designed to facilitate property rentals. It featur
 - [Functionalities](#functionalities)
 - [Technologies](#technologies)
 - [Project Structure](#project-structure)
-- [Setup](#setup)
+- [Setup Instructions](#setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -50,9 +50,7 @@ RentFree is a web application designed to facilitate property rentals. It featur
 - **HTTP Requests**: Axios
 - **Routing**: React Router
 
-## Project Structure
-
-Here's a brief overview of the project structure:
+## Setup Instructions
 
 To set up the project locally, follow these steps:
 
@@ -62,20 +60,24 @@ To set up the project locally, follow these steps:
     cd rentfree
     ```
 
-2. **Install Dependencies**
+2. **Navigate to the client and api directories and install dependencies:**
     ```bash
     npm install
     ```
 
 3. **Start the Development Server**
     ```bash
-    npm start
+    cd client
+    npm install
+    cd ../api
+    npm install
+    cd ..
     ```
 
-    This will start the frontend development server. Ensure your backend server is also running on `http://localhost:4000`.
+    Start the frontend and backend servers.
 
 4. **Open the Application**
-    Visit `http://localhost:3000` in your browser to see the application in action.
+    Visit in your browser to see the application in action.
 
 ## Usage
 
