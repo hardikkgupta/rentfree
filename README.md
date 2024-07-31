@@ -56,7 +56,7 @@ To set up the project locally, follow these steps:
     Start the frontend and backend servers.
 
 4. **Open the Application**
-    Visit in your browser to see the application in action.
+    - Visit in your browser to see the application in action.
 
 ## Usage
 
