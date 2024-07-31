@@ -1,18 +1,6 @@
 # RentFree
-
 ![Description](cover.png)
-
-RentFree is a web application designed to facilitate property rentals. It features user authentication, profile management, booking functionalities, and property listings. This README provides an overview of the project's structure, key components, and setup instructions.
-
-## Table of Contents
-- [Features](#features)
-- [Functionalities](#functionalities)
-- [Technologies](#technologies)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+RentFree is a web application designed to facilitate property and holiday rentals booking. This README provides an overview of the features, setup instructions and usage.
 
 ## Features
 - **User Authentication**: Allows users to register, log in, and manage their accounts.
@@ -28,17 +16,15 @@ RentFree is a web application designed to facilitate property rentals. It featur
 - **Session Management**: Users stay logged in across sessions and can securely log out.
 
 ### Property Management
-- **Property Listings**: Users can browse properties with detailed information including photos, descriptions, and pricing.
+- **Property Listings**: Users can browse properties with detailed information including location, photos, descriptions, and pricing and extra information.
 - **Add/Edit Property**: Users can add new properties or edit existing ones through a form.
 
 ### Booking System
-- **Search and Filter**: Users can search for properties based on location, date, and other criteria.
-- **Booking Form**: Users can select dates, provide booking details, and confirm their bookings.
-- **Booking History**: Users can view their past and upcoming bookings in their profile.
+- **Booking Form**: Users can select dates, provide booking check-in, booking check-out, number of guests, name and phone number and confirm their bookings.
+- **Booking History**: Users can view their upcoming and past bookings in their profile.
 
 ### Profile Management
 - **View Profile**: Users can view their profile information, including contact details and property listings.
-- **Edit Profile**: Users can update their profile information and preferences.
 - **Manage Properties**: Users can view and manage the properties they own or have listed.
 
 ### Responsive Design
@@ -46,11 +32,9 @@ RentFree is a web application designed to facilitate property rentals. It featur
 
 ## Technologies
 - **Frontend**: React, Tailwind CSS
-- **Backend**: Node.js, Express
+- **Backend**: Node.js, Express, AWS S3
 - **Database**: MongoDB
-- **Date Handling**: date-fns
 - **HTTP Requests**: Axios
-- **Routing**: React Router
 
 ## Setup Instructions
 
