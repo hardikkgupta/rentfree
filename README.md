@@ -3,13 +3,6 @@
 RentFree is a web application designed to facilitate property and holiday rentals booking. This README provides an overview of the features, setup instructions and usage.
 
 ## Features
-- **User Authentication**: Allows users to register, log in, and manage their accounts.
-- **Responsive Design**: Ensures the application is usable on both desktop and mobile devices.
-- **Property Listings**: Displays a list of available properties with detailed information.
-- **Booking System**: Enables users to select dates and book properties.
-- **Profile Management**: Users can view and edit their profile information and manage their properties.
-
-## Functionalities
 
 ### User Authentication
 - **Login/Registration**: Users can create a new account or log in to an existing one using email and password.
